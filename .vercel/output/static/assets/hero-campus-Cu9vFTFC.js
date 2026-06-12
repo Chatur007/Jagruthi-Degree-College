@@ -1,0 +1,1 @@
+var e=`/assets/hero-campus-FSzCwyOu.jpg`;export{e as t};
