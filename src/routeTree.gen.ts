@@ -9,38 +9,164 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as DepartmentsRouteImport } from './routes/departments'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AdmissionsRouteImport } from './routes/admissions'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DepartmentsIndexRouteImport } from './routes/departments.index'
+import { Route as DepartmentsSlugRouteImport } from './routes/departments.$slug'
 
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DepartmentsRoute = DepartmentsRouteImport.update({
+  id: '/departments',
+  path: '/departments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdmissionsRoute = AdmissionsRouteImport.update({
+  id: '/admissions',
+  path: '/admissions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DepartmentsIndexRoute = DepartmentsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DepartmentsRoute,
+} as any)
+const DepartmentsSlugRoute = DepartmentsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => DepartmentsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/admissions': typeof AdmissionsRoute
+  '/contact': typeof ContactRoute
+  '/departments': typeof DepartmentsRouteWithChildren
+  '/gallery': typeof GalleryRoute
+  '/departments/$slug': typeof DepartmentsSlugRoute
+  '/departments/': typeof DepartmentsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/admissions': typeof AdmissionsRoute
+  '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
+  '/departments/$slug': typeof DepartmentsSlugRoute
+  '/departments': typeof DepartmentsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/admissions': typeof AdmissionsRoute
+  '/contact': typeof ContactRoute
+  '/departments': typeof DepartmentsRouteWithChildren
+  '/gallery': typeof GalleryRoute
+  '/departments/$slug': typeof DepartmentsSlugRoute
+  '/departments/': typeof DepartmentsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/admissions'
+    | '/contact'
+    | '/departments'
+    | '/gallery'
+    | '/departments/$slug'
+    | '/departments/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/admissions'
+    | '/contact'
+    | '/gallery'
+    | '/departments/$slug'
+    | '/departments'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/admissions'
+    | '/contact'
+    | '/departments'
+    | '/gallery'
+    | '/departments/$slug'
+    | '/departments/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AdmissionsRoute: typeof AdmissionsRoute
+  ContactRoute: typeof ContactRoute
+  DepartmentsRoute: typeof DepartmentsRouteWithChildren
+  GalleryRoute: typeof GalleryRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/departments': {
+      id: '/departments'
+      path: '/departments'
+      fullPath: '/departments'
+      preLoaderRoute: typeof DepartmentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admissions': {
+      id: '/admissions'
+      path: '/admissions'
+      fullPath: '/admissions'
+      preLoaderRoute: typeof AdmissionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +174,45 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/departments/': {
+      id: '/departments/'
+      path: '/'
+      fullPath: '/departments/'
+      preLoaderRoute: typeof DepartmentsIndexRouteImport
+      parentRoute: typeof DepartmentsRoute
+    }
+    '/departments/$slug': {
+      id: '/departments/$slug'
+      path: '/$slug'
+      fullPath: '/departments/$slug'
+      preLoaderRoute: typeof DepartmentsSlugRouteImport
+      parentRoute: typeof DepartmentsRoute
+    }
   }
 }
 
+interface DepartmentsRouteChildren {
+  DepartmentsSlugRoute: typeof DepartmentsSlugRoute
+  DepartmentsIndexRoute: typeof DepartmentsIndexRoute
+}
+
+const DepartmentsRouteChildren: DepartmentsRouteChildren = {
+  DepartmentsSlugRoute: DepartmentsSlugRoute,
+  DepartmentsIndexRoute: DepartmentsIndexRoute,
+}
+
+const DepartmentsRouteWithChildren = DepartmentsRoute._addFileChildren(
+  DepartmentsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AdmissionsRoute: AdmissionsRoute,
+  ContactRoute: ContactRoute,
+  DepartmentsRoute: DepartmentsRouteWithChildren,
+  GalleryRoute: GalleryRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
