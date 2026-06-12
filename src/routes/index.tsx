@@ -44,7 +44,7 @@ function HomePage() {
           >
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--gold)]" /> Admissions 2026-27 Now Open
           </motion.span> */}
-
+ 
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
