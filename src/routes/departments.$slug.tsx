@@ -101,7 +101,7 @@ function DepartmentDetail() {
             <motion.div {...fade}>
               <h2 className="font-display text-2xl font-bold flex items-center gap-2"><FlaskConical className="h-5 w-5 text-[var(--gold)]" /> Facilities</h2>
               <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-                {dept.facilities.map((f) => (
+                {dept.facilities.map((f: string) => (
                   <li key={f} className="rounded-lg border bg-card px-4 py-3 text-sm">{f}</li>
                 ))}
               </ul>
@@ -112,7 +112,7 @@ function DepartmentDetail() {
             <motion.div {...fade}>
               <h2 className="font-display text-2xl font-bold flex items-center gap-2"><BookOpen className="h-5 w-5 text-[var(--gold)]" /> Courses Offered</h2>
               <ul className="mt-4 space-y-2">
-                {dept.courses.map((c) => (
+                {dept.courses.map((c: string) => (
                   <li key={c} className="rounded-lg border bg-card px-4 py-3 text-sm">{c}</li>
                 ))}
               </ul>
