@@ -5,7 +5,7 @@ import { SiteShell } from "@/components/site/SiteShell";
 import { Button } from "@/components/ui/button";
 import { Counter } from "@/components/site/Counter";
 import { AdmissionDialog } from "@/components/site/AdmissionDialog";
-import { DEPARTMENTS, NOTICES, QUICK_LINKS, SITE } from "@/lib/site-data";
+import { DEPARTMENTS, GALLERY_PREVIEW, NOTICES, QUICK_LINKS, SITE } from "@/lib/site-data";
 import hero from "@/assets/hero-campus.jpg";
 import principal from "@/assets/principal.jpg";
 
@@ -36,14 +36,14 @@ function HomePage() {
         }}
       >
         <div className="mx-auto max-w-7xl px-4 py-32 sm:px-6 lg:px-8">
-          <motion.span
+          {/* <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-medium uppercase tracking-widest backdrop-blur"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--gold)]" /> Admissions 2026-27 Now Open
-          </motion.span>
+          </motion.span> */}
 
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -262,19 +262,14 @@ function HomePage() {
             <Link to="/gallery"><Button variant="outline">Open Gallery <ArrowRight className="ml-1 h-4 w-4" /></Button></Link>
           </motion.div>
           <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-            {[
-              "https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80",
-              "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
-              "https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=800&q=80",
-              "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800&q=80",
-            ].map((src, i) => (
+            {GALLERY_PREVIEW.map((item, i) => (
               <motion.div
-                key={src}
+                key={item.src}
                 {...fadeUp}
                 transition={{ duration: 0.5, delay: i * 0.05 }}
                 className="group aspect-square overflow-hidden rounded-2xl"
               >
-                <img src={src} alt="" loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-110" />
+                <img src={item.src} alt={item.title} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-110" />
               </motion.div>
             ))}
           </div>

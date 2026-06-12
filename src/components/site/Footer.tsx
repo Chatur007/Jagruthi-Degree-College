@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Twitter, Youtube, Linkedin, MapPin, Phone, Mail, GraduationCap } from "lucide-react";
+import { Facebook, Instagram, Twitter, Youtube, Linkedin, MapPin, Phone, Mail } from "lucide-react";
 import { SITE, QUICK_LINKS } from "@/lib/site-data";
+import logo from "@/assets/logo.png";
 
 export function Footer() {
   return (
@@ -9,9 +10,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-2.5">
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-[var(--gold)]">
-                <GraduationCap className="h-5 w-5" />
-              </span>
+              <img src={logo} alt="" className="h-10 w-10 shrink-0 object-contain" />
               <div className="min-w-0">
                 <div className="font-display text-lg font-bold">{SITE.name}</div>
                 <div className="text-[10px] uppercase tracking-widest text-white/60">{SITE.tagline}</div>

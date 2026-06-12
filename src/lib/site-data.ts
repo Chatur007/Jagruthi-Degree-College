@@ -1,6 +1,11 @@
+import galleryWhatsApp1 from "@/assets/WhatsApp Image 2026-06-05 at 7.04.34 PM.jpeg";
+import galleryWhatsApp2 from "@/assets/WhatsApp Image 2026-06-05 at 7.04.34 PM (1).jpeg";
+import galleryWhatsApp3 from "@/assets/WhatsApp Image 2026-06-05 at 7.04.34 PM (2).jpeg";
+import galleryWhatsApp4 from "@/assets/WhatsApp Image 2026-06-05 at 7.04.35 PM.jpeg";
+
 export const SITE = {
-  name: "Vidya Bharati College",
-  short: "VBC",
+  name: "Jagruthi Degree College",
+  short: "JDC",
   tagline: "Excellence in Education Since 1978",
   address: "Main Road, Bhalki, Bidar District, Karnataka 585328",
   phone: "+91 98765 43210",
@@ -84,7 +89,7 @@ export const DEPARTMENTS: Department[] = [
     slug: "zoology",
     name: "Department of Zoology",
     short: "Zoology",
-    image: "https://images.unsplash.com/photo-1535057288195-1d2f6f5b3a4c?w=1200&q=80",
+    image: "https://plus.unsplash.com/premium_photo-1722054522045-debe05e966e9?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8em9vbG9naXN0fGVufDB8fDB8fHww",
     description: "Studying animal life, biodiversity and biomedical sciences.",
     overview:
       "Zoology at VBC blends classical taxonomy with modern molecular biology, biotechnology and animal physiology.",
@@ -99,7 +104,7 @@ export const DEPARTMENTS: Department[] = [
     slug: "chemistry",
     name: "Department of Chemistry",
     short: "Chemistry",
-    image: "https://images.unsplash.com/photo-1532634922-8fe0b757fb13?w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1694230155228-cdde50083573?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2hlbWlzdHJ5JTIwY2xhc3N8ZW58MHx8MHx8fDA%3D",
     description: "Where molecules meet imagination — organic, inorganic and physical.",
     overview:
       "Modern chemistry laboratories, instrumentation and research-led teaching prepare students for industry and academia alike.",
@@ -167,10 +172,10 @@ export const NOTICES = [
 ];
 
 export const GALLERY = [
-  { src: "https://images.unsplash.com/photo-1562774053-701939374585?w=1200&q=80", category: "Campus", title: "Main Campus" },
-  { src: "https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=1200&q=80", category: "Campus", title: "Library Block" },
-  { src: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=80", category: "Campus", title: "Quadrangle" },
-  { src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80", category: "Events", title: "Convocation" },
+  { src: galleryWhatsApp1, category: "Campus", title: "Campus Moment" },
+  { src: galleryWhatsApp2, category: "Events", title: "WhatsApp Photo 1" },
+  { src: galleryWhatsApp3, category: "Events", title: "WhatsApp Photo 2" },
+  { src: galleryWhatsApp4, category: "Campus", title: "WhatsApp Photo 3" },
   { src: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1200&q=80", category: "Events", title: "Tech Fest" },
   { src: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200&q=80", category: "Cultural Activities", title: "Annual Day" },
   { src: "https://images.unsplash.com/photo-1496661269814-a841e78df103?w=1200&q=80", category: "Cultural Activities", title: "Dance Performance" },
@@ -192,3 +197,5 @@ export const GALLERY_CATEGORIES = [
   "Workshops",
   "Laboratories",
 ] as const;
+
+export const GALLERY_PREVIEW = GALLERY.slice(0, 4);
