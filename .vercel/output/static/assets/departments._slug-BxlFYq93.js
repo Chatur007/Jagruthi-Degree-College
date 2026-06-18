@@ -1,1 +1,0 @@
-import{o as e}from"./useStore-DgTVU5_6.js";import{n as t}from"./SiteShell-cPbqmhll.js";var n=e(),r=()=>(0,n.jsx)(t,{children:(0,n.jsx)(`div`,{className:`mx-auto max-w-3xl px-4 py-32 text-center`,children:(0,n.jsx)(`h1`,{className:`font-display text-3xl font-bold`,children:`Something went wrong`})})});export{r as errorComponent};
