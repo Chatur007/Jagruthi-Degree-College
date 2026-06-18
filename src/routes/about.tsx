@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { BookOpen, FlaskConical, Monitor, Trophy, Theater, Library, Award, ShieldCheck } from "lucide-react";
+import { BookOpen, Library, Trophy, Users, Wifi, Home, ShieldCheck, Monitor } from "lucide-react";
 import { SiteShell, PageHeader } from "@/components/site/SiteShell";
 import principal from "@/assets/principal.jpg";
 import hero from "@/assets/hero-campus.jpg";
@@ -8,10 +8,10 @@ import hero from "@/assets/hero-campus.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Vidya Bharati College" },
-      { name: "description", content: "History, vision, mission, infrastructure and achievements of Vidya Bharati College." },
-      { property: "og:title", content: "About Vidya Bharati College" },
-      { property: "og:description", content: "Five decades of academic excellence." },
+      { title: "About — Jagruthi Degree College" },
+      { name: "description", content: "Vision, mission, history, leadership and facilities of Jagruthi Degree College." },
+      { property: "og:title", content: "About Jagruthi Degree College" },
+      { property: "og:description", content: "Two decades of educational excellence and holistic development." },
     ],
   }),
   component: AboutPage,
@@ -22,75 +22,154 @@ const fade = { initial: { opacity: 0, y: 30 }, whileInView: { opacity: 1, y: 0 }
 function AboutPage() {
   return (
     <SiteShell>
-      <PageHeader title="About the Institution" subtitle="A legacy of academic excellence, character formation and community service." image={hero} />
+      <PageHeader title="About Jagruthi Degree College" subtitle="Two decades of educational excellence, holistic development, and community service." image={hero} />
 
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-5xl space-y-12 px-4 sm:px-6 lg:px-8">
-          <motion.div {...fade}>
-            <h2 className="font-display text-3xl font-bold">Our History</h2>
-            <p className="mt-3 text-muted-foreground">
-              Founded in 1978, Vidya Bharati College began as a small community college serving the educational needs of Bhalki and surrounding districts. Today it has grown into a multi-faculty institution with thousands of alumni serving in academia, industry, public service and the arts across India and abroad.
-            </p>
-          </motion.div>
-
+          {/* Vision & Mission */}
           <div className="grid gap-6 md:grid-cols-2">
-            {[
-              { title: "Vision", body: "To be a center of academic excellence that nurtures responsible, creative and globally aware citizens." },
-              { title: "Mission", body: "To deliver quality education through innovative teaching, research, and meaningful engagement with society." },
-            ].map((c) => (
-              <motion.div key={c.title} {...fade} className="rounded-2xl border bg-card p-6 shadow-sm">
-                <h3 className="font-display text-xl font-bold text-[var(--navy)] dark:text-[var(--gold)]">{c.title}</h3>
-                <p className="mt-2 text-muted-foreground">{c.body}</p>
-              </motion.div>
-            ))}
+            <motion.div {...fade} className="rounded-2xl border bg-card p-6 shadow-sm">
+              <h3 className="font-display text-2xl font-bold text-[var(--navy)] dark:text-[var(--gold)]">Vision</h3>
+              <p className="mt-3 text-muted-foreground">
+                To be a centre of academic excellence and holistic development, providing a platform for quality basic and higher education that empowers students to succeed in their chosen fields and become responsible, compassionate citizens.
+              </p>
+            </motion.div>
+            <motion.div {...fade} className="rounded-2xl border bg-card p-6 shadow-sm">
+              <h3 className="font-display text-2xl font-bold text-[var(--navy)] dark:text-[var(--gold)]">Mission</h3>
+              <p className="mt-3 text-muted-foreground">
+                To challenge and inspire every student to realize their full potential – intellectually and personally. We strive to nurture talent by maintaining the highest standards of academic excellence, while fostering critical thinking, self-discovery, and moral values.
+              </p>
+            </motion.div>
           </div>
 
-          <motion.div {...fade} className="grid gap-8 rounded-3xl border bg-muted/30 p-6 md:grid-cols-[220px_1fr] md:items-center md:p-10">
-            <img src={principal} alt="Principal" className="mx-auto h-56 w-44 rounded-2xl object-cover shadow-lg" loading="lazy" />
-            <div>
-              <h3 className="font-display text-2xl font-bold">Principal's Message</h3>
-              <p className="mt-3 text-muted-foreground">
-                "At Vidya Bharati College, we are committed to creating a vibrant learning environment where each student can flourish — intellectually, socially and ethically. Our faculty and infrastructure are dedicated to preparing students not just for careers, but for life."
-              </p>
-              <p className="mt-3 font-semibold">Dr. Mahesh Rao — Principal</p>
+          {/* Founder's Message */}
+          <motion.div {...fade} className="rounded-3xl border bg-gradient-to-br from-[var(--gold)]/10 to-transparent p-6 md:p-10">
+            <div className="grid gap-8 md:grid-cols-[280px_1fr] md:items-start">
+              <div>
+                <img src={principal} alt="Shri. L. G. Gupta" className="rounded-2xl object-cover shadow-lg" loading="lazy" />
+              </div>
+              <div>
+                <h3 className="font-display text-2xl font-bold">Message from the Founder</h3>
+                <p className="mt-1 text-sm text-[var(--gold)] font-semibold">Shri. L. G. Gupta</p>
+                <p className="mt-1 text-xs text-muted-foreground">Founder President & Chairman, Panchsheel Group of Institutions</p>
+                
+                <p className="mt-4 text-muted-foreground leading-relaxed">
+                  I am delighted to welcome you to the Panchsheel Group of Institutions, Bhalki (PGI Bhalki) family. It is my vision to provide our nation with motivated, responsible, and disciplined youth who will shape a better future. <span className="font-semibold">Education is the most powerful weapon you can use to change the world</span>, and at PGI Bhalki we wield this tool to unlock each student's potential.
+                </p>
+
+                <p className="mt-3 text-muted-foreground leading-relaxed">
+                  Our dedicated faculty and staff work tirelessly to ignite young minds through strong academics, as well as co-curricular and extra-curricular activities. We believe in instilling confidence, curiosity, and a sense of social responsibility. <span className="italic">We march along with you for your victory</span>, meaning we stand beside each student, guiding them toward achievement.
+                </p>
+
+                <p className="mt-3 text-muted-foreground leading-relaxed">
+                  In this era of global transformation, our youth are the key to India's bright future. With this conviction, we focus on creating progressive, positive-minded citizens ready to lead and serve society. Your aspirations are our mission.
+                </p>
+              </div>
             </div>
           </motion.div>
 
+          {/* History & Philosophy */}
           <motion.div {...fade}>
-            <h2 className="font-display text-3xl font-bold">Infrastructure</h2>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <h2 className="font-display text-3xl font-bold">Our History & Philosophy</h2>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              Established in 1998, the <span className="font-semibold">Panchsheel Education Trust</span> has built a rich legacy spanning over two decades in the field of education. What began as a single school in Bhalki with a vision to make education accessible to all has grown into a group of institutions encompassing multiple schools and colleges. Over the years, we have expanded from primary education to professional courses, including nursing, teacher education (B.Ed.), industrial training (ITI), and paramedical programmes. We take pride in extending quality education to rural and underserved areas in the Bidar district, staying true to our mission of educational outreach.
+            </p>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              Our educational philosophy centers on <span className="font-semibold">holistic development</span>. We believe that true education goes beyond academic excellence; it involves shaping well-rounded individuals. At PGI Bhalki, students excel in academics and engage in sports, cultural pursuits, leadership activities, and community service. Our graduates leave with strong knowledge, skills, integrity, confidence, and a sense of responsibility. We uphold the values of <span className="font-semibold">Excellence, Service, and Integrity</span> in every aspect of our teaching-learning process.
+            </p>
+          </motion.div>
+
+          {/* Highlights */}
+          <motion.div {...fade}>
+            <h2 className="font-display text-3xl font-bold">Highlights</h2>
+            <div className="mt-6 grid gap-4 sm:grid-cols-3">
               {[
-                { icon: Library, t: "Modern Library", d: "Over 50,000 books and digital access to NDLI and e-PG Pathshala." },
-                { icon: FlaskConical, t: "Laboratories", d: "Well-equipped Physics, Chemistry, Botany, Zoology and Computing labs." },
-                { icon: Monitor, t: "Smart Classrooms", d: "Interactive boards and multimedia teaching aids across departments." },
-                { icon: Theater, t: "Auditorium", d: "500-seater auditorium for events, seminars and cultural programs." },
-                { icon: Trophy, t: "Sports Facilities", d: "Cricket ground, basketball, volleyball, indoor games and gym." },
-                { icon: BookOpen, t: "Reading Rooms", d: "Quiet study spaces with 24×7 reading hall during exam season." },
-              ].map((f) => (
-                <div key={f.t} className="rounded-2xl border bg-card p-5">
-                  <f.icon className="h-7 w-7 text-[var(--gold)]" />
-                  <h4 className="mt-3 font-display text-lg font-semibold">{f.t}</h4>
-                  <p className="mt-1 text-sm text-muted-foreground">{f.d}</p>
-                </div>
+                {
+                  icon: ShieldCheck,
+                  title: "UGC Recognized",
+                  desc: "Government-recognized institution with approved academic programs and standards.",
+                },
+                {
+                  icon: Monitor,
+                  title: "Smart Classrooms",
+                  desc: "Technology-enabled classrooms with modern audio-visual learning tools.",
+                },
+                {
+                  icon: Library,
+                  title: "Modern Library",
+                  desc: "Extensive print and digital resources with dedicated study and reading spaces.",
+                },
+              ].map((item) => (
+                <motion.div key={item.title} {...fade} className="rounded-2xl border bg-gradient-to-br from-[var(--gold)]/10 to-transparent p-6 shadow-sm hover:shadow-md transition">
+                  <item.icon className="h-8 w-8 text-[var(--gold)]" />
+                  <h4 className="mt-4 font-display text-lg font-semibold">{item.title}</h4>
+                  <p className="mt-2 text-sm text-muted-foreground">{item.desc}</p>
+                </motion.div>
               ))}
             </div>
           </motion.div>
 
-          <motion.div {...fade}>
-            <h2 className="font-display text-3xl font-bold">Achievements & Accreditations</h2>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          {/* Campus & Facilities */}
+          {/* <motion.div {...fade}>
+            <h2 className="font-display text-3xl font-bold">Our Campus & Facilities</h2>
+            <p className="mt-4 text-muted-foreground leading-relaxed mb-6">
+              Spread across three campuses – at Bhalki (head office), Ambesangvi, and Kesar Jawalga – covering a total of 10 acres, PGI Bhalki provides a green, welcoming atmosphere conducive to learning and personal growth.
+            </p>
+
+            <div className="grid gap-4 sm:grid-cols-2">
               {[
-                { icon: Award, t: "NAAC Accredited — Grade A", d: "Recognized for academic and institutional excellence." },
-                { icon: ShieldCheck, t: "UGC Recognized 2(f) & 12(B)", d: "Affiliated to Gulbarga University." },
-                { icon: Trophy, t: "Best College Award 2023", d: "Awarded by the District Education Council." },
-                { icon: Award, t: "Research Publications", d: "Active research output across science and humanities." },
-              ].map((a) => (
-                <div key={a.t} className="flex gap-3 rounded-2xl border bg-card p-5">
-                  <a.icon className="h-6 w-6 shrink-0 text-[var(--gold)]" />
-                  <div>
-                    <h4 className="font-display text-base font-semibold">{a.t}</h4>
-                    <p className="mt-0.5 text-sm text-muted-foreground">{a.d}</p>
-                  </div>
+                {
+                  icon: BookOpen,
+                  title: "Classrooms & Laboratories",
+                  desc: "Spacious, well-ventilated classrooms with modern teaching aids and state-of-the-art laboratories for sciences, healthcare, and computing.",
+                },
+                {
+                  icon: Library,
+                  title: "Library & Learning Hub",
+                  desc: "Well-stocked library with vast collections of books, journals, and digital resources. Quiet study areas foster a habit of lifelong learning.",
+                },
+                {
+                  icon: Home,
+                  title: "Hostel Facilities",
+                  desc: "Separate hostels for boys and girls with furnished rooms, healthy mess facilities, round-the-clock security, and recreational spaces.",
+                },
+                {
+                  icon: Trophy,
+                  title: "Sports & Recreation",
+                  desc: "Excellent sports infrastructure with playfields and courts for cricket, football, volleyball, badminton. NCC, scouting, and cultural events.",
+                },
+                {
+                  icon: Users,
+                  title: "Cafeteria & Health",
+                  desc: "Self-contained campuses with cafeteria offering hygienic food, transportation facilities, and basic medical care.",
+                },
+                {
+                  icon: Wifi,
+                  title: "Technology & Security",
+                  desc: "Entire campus is Wi-Fi enabled and monitored for safety, creating a technologically advanced and secure learning space.",
+                },
+              ].map((facility) => (
+                <motion.div key={facility.title} {...fade} className="rounded-2xl border bg-card p-6 shadow-sm hover:shadow-md transition">
+                  <facility.icon className="h-8 w-8 text-[var(--gold)]" />
+                  <h4 className="mt-3 font-display text-lg font-semibold">{facility.title}</h4>
+                  <p className="mt-2 text-sm text-muted-foreground">{facility.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div> */}
+
+          {/* Core Values */}
+          <motion.div {...fade} className="rounded-3xl border bg-muted/30 p-6 md:p-10">
+            <h2 className="font-display text-3xl font-bold mb-6">Our Core Values</h2>
+            <div className="grid gap-6 md:grid-cols-3">
+              {[
+                { title: "Excellence", desc: "Maintaining the highest standards in academics and character development" },
+                { title: "Service", desc: "Committed to serving society and uplifting underserved communities" },
+                { title: "Integrity", desc: "Fostering honesty, responsibility, and ethical conduct in all endeavors" },
+              ].map((value) => (
+                <div key={value.title} className="text-center">
+                  <h3 className="font-display text-xl font-bold text-[var(--navy)] dark:text-[var(--gold)]">{value.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{value.desc}</p>
                 </div>
               ))}
             </div>

@@ -8,7 +8,9 @@ export const SITE = {
   short: "JDC",
   tagline: "Excellence in Education Since 1978",
   address: "Main Road, Bhalki, Bidar District, Karnataka 585328",
-  phone: "+91 98765 43210",
+  phone: "+91 91130 35230",
+  phone2: "+91 73531 07313",
+  whatsapp: "+91 73531 07313",
   email: "info@vidyabharatic.edu.in",
   mapEmbed:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15247.42!2d77.20!3d18.04!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sBhalki!5e0!3m2!1sen!2sin!4v1700000000000",
@@ -181,21 +183,42 @@ export const GALLERY = [
   { src: "https://images.unsplash.com/photo-1496661269814-a841e78df103?w=1200&q=80", category: "Cultural Activities", title: "Dance Performance" },
   { src: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=1200&q=80", category: "Sports", title: "Cricket Tournament" },
   { src: "https://images.unsplash.com/photo-1521412644187-c49fa049e84d?w=1200&q=80", category: "Sports", title: "Basketball Court" },
-  { src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80", category: "Workshops", title: "Industry Workshop" },
-  { src: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200&q=80", category: "Workshops", title: "Leadership Seminar" },
-  { src: "https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=1200&q=80", category: "Laboratories", title: "Chemistry Lab" },
-  { src: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1200&q=80", category: "Laboratories", title: "Computer Lab" },
-  { src: "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=1200&q=80", category: "Laboratories", title: "Physics Lab" },
+  { src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80", category: "Classrooms", title: "Interactive Classroom" },
+  { src: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200&q=80", category: "Library", title: "Library Reading Area" },
+  { src: "https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=1200&q=80", category: "Classrooms", title: "Science Lab" },
+  { src: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1200&q=80", category: "Classrooms", title: "Computer Lab" },
+  { src: "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=1200&q=80", category: "Library", title: "Digital Library" },
 ];
 
 export const GALLERY_CATEGORIES = [
   "All",
   "Campus",
+  "Classrooms",
+  "Library",
   "Events",
   "Cultural Activities",
   "Sports",
-  "Workshops",
-  "Laboratories",
 ] as const;
 
 export const GALLERY_PREVIEW = GALLERY.slice(0, 4);
+
+export type FeeStructure = {
+  course: string;
+  fee: number;
+};
+
+export const FEE_STRUCTURE: FeeStructure[] = [
+  { course: "B.A", fee: 12000 },
+  { course: "B.Com (General)", fee: 12000 },
+  { course: "B.Sc (CBZ)", fee: 12000 },
+  { course: "B.Sc (PCM)", fee: 14000 },
+  { course: "B.Sc (PMCs)", fee: 16000 },
+];
+
+export const COURSES = [
+  "B.Com (General)",
+  "B.A",
+  "B.Sc (CBZ)",
+  "B.Sc (PCM)",
+  "B.Sc (PMCs)",
+];

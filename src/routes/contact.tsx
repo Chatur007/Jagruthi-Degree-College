@@ -62,7 +62,9 @@ function ContactPage() {
             <ul className="mt-6 space-y-4">
               {[
                 { icon: MapPin, t: "Address", v: SITE.address },
-                { icon: Phone, t: "Phone", v: SITE.phone },
+                { icon: Phone, t: "Phone 1", v: SITE.phone },
+                { icon: Phone, t: "Phone 2", v: SITE.phone2 },
+                { icon: Phone, t: "WhatsApp", v: SITE.whatsapp },
                 { icon: Mail, t: "Email", v: SITE.email },
               ].map((c) => (
                 <li key={c.t} className="flex gap-4 rounded-2xl border bg-card p-5">

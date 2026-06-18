@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowRight, GraduationCap, Users, Building2, Award, Bell, ExternalLink } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowRight, Bell, ExternalLink } from "lucide-react";
 import { SiteShell } from "@/components/site/SiteShell";
 import { Button } from "@/components/ui/button";
-import { Counter } from "@/components/site/Counter";
 import { AdmissionDialog } from "@/components/site/AdmissionDialog";
 import { DEPARTMENTS, GALLERY_PREVIEW, NOTICES, QUICK_LINKS, SITE } from "@/lib/site-data";
 import hero from "@/assets/hero-campus.jpg";
@@ -24,6 +24,18 @@ export const Route = createFileRoute("/")({
 const fadeUp = { initial: { opacity: 0, y: 30 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, margin: "-80px" }, transition: { duration: 0.6 } };
 
 function HomePage() {
+  const [isAdmissionOpen, setIsAdmissionOpen] = useState(false);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setIsAdmissionOpen(true);
+    }, 3000);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <SiteShell>
       {/* Hero */}
@@ -70,6 +82,8 @@ function HomePage() {
             className="mt-8 flex flex-wrap gap-3"
           >
             <AdmissionDialog
+              open={isAdmissionOpen}
+              onOpenChange={setIsAdmissionOpen}
               trigger={
                 <Button size="lg" className="bg-[var(--gold)] text-[var(--navy)] hover:bg-[var(--gold-light)]">
                   Apply for Admission <ArrowRight className="ml-1 h-4 w-4" />
@@ -134,24 +148,7 @@ function HomePage() {
       </section>
 
       {/* Stats */}
-      <section className="relative isolate overflow-hidden bg-navy-gradient py-20 text-white">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
-          {[
-            { icon: GraduationCap, n: 4500, label: "Students" },
-            { icon: Users, n: 180, label: "Faculty Members" },
-            { icon: Building2, n: 8, label: "Departments", suffix: "" },
-            { icon: Award, n: 12000, label: "Alumni" },
-          ].map((s, i) => (
-            <motion.div key={i} {...fadeUp} className="text-center">
-              <s.icon className="mx-auto h-10 w-10 text-[var(--gold)]" />
-              <div className="mt-3 font-display text-4xl font-bold sm:text-5xl">
-                <Counter to={s.n} suffix={s.suffix ?? "+"} />
-              </div>
-              <div className="mt-1 text-sm uppercase tracking-widest text-white/70">{s.label}</div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+      {/* Removed student count / statistics section */}
 
       {/* Notice Board */}
       <section className="py-20 sm:py-24">
@@ -213,7 +210,7 @@ function HomePage() {
       </section>
 
       {/* Departments preview */}
-      <section className="py-20 sm:py-24">
+      {/* <section className="py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="flex flex-wrap items-end justify-between gap-4">
             <div>
@@ -249,7 +246,7 @@ function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Gallery preview */}
       <section className="bg-muted/50 py-20">

@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CheckCircle2 } from "lucide-react";
-import { DEPARTMENTS } from "@/lib/site-data";
+import { DEPARTMENTS, COURSES } from "@/lib/site-data";
 import { z } from "zod";
 import { toast } from "sonner";
 
@@ -26,9 +26,24 @@ const schema = z.object({
   pin: z.string().regex(/^\d{6}$/, "Enter a 6-digit PIN"),
 });
 
-export function AdmissionDialog({ trigger }: { trigger: React.ReactNode }) {
+type AdmissionDialogProps = {
+  trigger?: React.ReactNode;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+};
+
+export function AdmissionDialog({ trigger, open: controlledOpen, onOpenChange }: AdmissionDialogProps) {
   const [submitted, setSubmitted] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [internalOpen, setInternalOpen] = useState(false);
+
+  const isControlled = typeof controlledOpen === "boolean";
+  const open = isControlled ? controlledOpen : internalOpen;
+  const setOpen = (nextOpen: boolean) => {
+    if (!isControlled) {
+      setInternalOpen(nextOpen);
+    }
+    onOpenChange?.(nextOpen);
+  };
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -50,7 +65,7 @@ export function AdmissionDialog({ trigger }: { trigger: React.ReactNode }) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>{trigger}</DialogTrigger>
+      {trigger ? <DialogTrigger asChild>{trigger}</DialogTrigger> : null}
       <DialogContent className="max-h-[90vh] max-w-3xl overflow-y-auto">
         {submitted ? (
           <div className="py-10 text-center">
@@ -102,7 +117,16 @@ export function AdmissionDialog({ trigger }: { trigger: React.ReactNode }) {
                     </SelectContent>
                   </Select>
                 </Field>
-                <Field label="Course"><Input name="course" placeholder="e.g. B.Sc." required /></Field>
+                <Field label="Course">
+                  <Select name="course">
+                    <SelectTrigger><SelectValue placeholder="Select Course" /></SelectTrigger>
+                    <SelectContent>
+                      {COURSES.map((c) => (
+                        <SelectItem key={c} value={c}>{c}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </Field>
               </Section>
 
               <Section title="Address Details">
@@ -110,12 +134,6 @@ export function AdmissionDialog({ trigger }: { trigger: React.ReactNode }) {
                 <Field label="City"><Input name="city" required /></Field>
                 <Field label="State"><Input name="state" required /></Field>
                 <Field label="PIN Code"><Input name="pin" inputMode="numeric" maxLength={6} required /></Field>
-              </Section>
-
-              <Section title="Document Upload">
-                <Field label="Photo"><Input type="file" accept="image/*" /></Field>
-                <Field label="Marks Card"><Input type="file" accept="image/*,application/pdf" /></Field>
-                <Field label="Transfer Certificate" className="sm:col-span-2"><Input type="file" accept="image/*,application/pdf" /></Field>
               </Section>
 
               <div className="flex justify-end gap-2">

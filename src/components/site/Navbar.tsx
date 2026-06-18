@@ -9,8 +9,8 @@ import logo from "@/assets/logo.png";
 const links = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/admissions", label: "Admissions" },
-  { to: "/departments", label: "Departments" },
+  { to: "/academics", label: "Academics" },
+  { to: "/fees", label: "Fee Structure" },
   { to: "/gallery", label: "Gallery" },
   { to: "/contact", label: "Contact" },
 ];

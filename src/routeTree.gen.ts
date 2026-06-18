@@ -10,9 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as FeesRouteImport } from './routes/fees'
 import { Route as DepartmentsRouteImport } from './routes/departments'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AdmissionsRouteImport } from './routes/admissions'
+import { Route as AcademicsRouteImport } from './routes/academics'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DepartmentsIndexRouteImport } from './routes/departments.index'
@@ -21,6 +23,11 @@ import { Route as DepartmentsSlugRouteImport } from './routes/departments.$slug'
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeesRoute = FeesRouteImport.update({
+  id: '/fees',
+  path: '/fees',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DepartmentsRoute = DepartmentsRouteImport.update({
@@ -36,6 +43,11 @@ const ContactRoute = ContactRouteImport.update({
 const AdmissionsRoute = AdmissionsRouteImport.update({
   id: '/admissions',
   path: '/admissions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcademicsRoute = AcademicsRouteImport.update({
+  id: '/academics',
+  path: '/academics',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -62,9 +74,11 @@ const DepartmentsSlugRoute = DepartmentsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/academics': typeof AcademicsRoute
   '/admissions': typeof AdmissionsRoute
   '/contact': typeof ContactRoute
   '/departments': typeof DepartmentsRouteWithChildren
+  '/fees': typeof FeesRoute
   '/gallery': typeof GalleryRoute
   '/departments/$slug': typeof DepartmentsSlugRoute
   '/departments/': typeof DepartmentsIndexRoute
@@ -72,8 +86,10 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/academics': typeof AcademicsRoute
   '/admissions': typeof AdmissionsRoute
   '/contact': typeof ContactRoute
+  '/fees': typeof FeesRoute
   '/gallery': typeof GalleryRoute
   '/departments/$slug': typeof DepartmentsSlugRoute
   '/departments': typeof DepartmentsIndexRoute
@@ -82,9 +98,11 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/academics': typeof AcademicsRoute
   '/admissions': typeof AdmissionsRoute
   '/contact': typeof ContactRoute
   '/departments': typeof DepartmentsRouteWithChildren
+  '/fees': typeof FeesRoute
   '/gallery': typeof GalleryRoute
   '/departments/$slug': typeof DepartmentsSlugRoute
   '/departments/': typeof DepartmentsIndexRoute
@@ -94,9 +112,11 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/academics'
     | '/admissions'
     | '/contact'
     | '/departments'
+    | '/fees'
     | '/gallery'
     | '/departments/$slug'
     | '/departments/'
@@ -104,8 +124,10 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/academics'
     | '/admissions'
     | '/contact'
+    | '/fees'
     | '/gallery'
     | '/departments/$slug'
     | '/departments'
@@ -113,9 +135,11 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/academics'
     | '/admissions'
     | '/contact'
     | '/departments'
+    | '/fees'
     | '/gallery'
     | '/departments/$slug'
     | '/departments/'
@@ -124,9 +148,11 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AcademicsRoute: typeof AcademicsRoute
   AdmissionsRoute: typeof AdmissionsRoute
   ContactRoute: typeof ContactRoute
   DepartmentsRoute: typeof DepartmentsRouteWithChildren
+  FeesRoute: typeof FeesRoute
   GalleryRoute: typeof GalleryRoute
 }
 
@@ -137,6 +163,13 @@ declare module '@tanstack/react-router' {
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fees': {
+      id: '/fees'
+      path: '/fees'
+      fullPath: '/fees'
+      preLoaderRoute: typeof FeesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/departments': {
@@ -158,6 +191,13 @@ declare module '@tanstack/react-router' {
       path: '/admissions'
       fullPath: '/admissions'
       preLoaderRoute: typeof AdmissionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/academics': {
+      id: '/academics'
+      path: '/academics'
+      fullPath: '/academics'
+      preLoaderRoute: typeof AcademicsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -208,9 +248,11 @@ const DepartmentsRouteWithChildren = DepartmentsRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AcademicsRoute: AcademicsRoute,
   AdmissionsRoute: AdmissionsRoute,
   ContactRoute: ContactRoute,
   DepartmentsRoute: DepartmentsRouteWithChildren,
+  FeesRoute: FeesRoute,
   GalleryRoute: GalleryRoute,
 }
 export const routeTree = rootRouteImport
