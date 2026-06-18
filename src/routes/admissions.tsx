@@ -12,7 +12,7 @@ export const Route = createFileRoute("/admissions")({
     meta: [
       { title: "Admissions 2026-27 — Vidya Bharati College" },
       { name: "description", content: "Admission process, courses offered, eligibility, fee structure and online application." },
-      { property: "og:title", content: "Admissions — Vidya Bharati College" },
+      { property: "og:title", content: "Admissions - Vidya Bharati College" },
       { property: "og:description", content: "Apply online for UG and PG programs." },
     ],
   }),
