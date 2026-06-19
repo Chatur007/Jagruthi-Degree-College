@@ -5,6 +5,7 @@ import { MapPin, Phone, Mail, Send } from "lucide-react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { SiteShell, PageHeader } from "@/components/site/SiteShell";
+import { sendContactEmail } from "@/lib/api/contact.server";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -35,7 +36,7 @@ const schema = z.object({
 function ContactPage() {
   const [loading, setLoading] = useState(false);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const data = Object.fromEntries(fd.entries());
@@ -45,11 +46,16 @@ function ContactPage() {
       return;
     }
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      await sendContactEmail({ data: result.data });
       toast.success("Message sent! We'll get back to you soon.");
       (e.target as HTMLFormElement).reset();
-    }, 600);
+    } catch (error: any) {
+      console.error("Failed to send contact email:", error);
+      toast.error(error?.message || "Failed to send message. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

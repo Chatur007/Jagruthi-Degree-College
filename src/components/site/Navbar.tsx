@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Moon, Sun } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { SITE } from "@/lib/site-data";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
@@ -18,7 +18,6 @@ const links = [
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [dark, setDark] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
@@ -31,18 +30,10 @@ export function Navbar() {
   useEffect(() => setOpen(false), [pathname]);
 
   useEffect(() => {
-    const stored = typeof window !== "undefined" ? localStorage.getItem("theme") : null;
-    const prefersDark = stored ? stored === "dark" : window.matchMedia?.("(prefers-color-scheme: dark)").matches;
-    setDark(!!prefersDark);
-    document.documentElement.classList.toggle("dark", !!prefersDark);
+    // Explicitly enforce dark mode
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
   }, []);
-
-  const toggleDark = () => {
-    const next = !dark;
-    setDark(next);
-    document.documentElement.classList.toggle("dark", next);
-    localStorage.setItem("theme", next ? "dark" : "light");
-  };
 
   return (
     <header
@@ -87,13 +78,6 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <button
-            onClick={toggleDark}
-            aria-label="Toggle theme"
-            className="grid h-9 w-9 place-items-center rounded-md text-foreground hover:bg-muted"
-          >
-            {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </button>
           <Link to="/admissions" className="hidden sm:block">
             <Button className="bg-[var(--gold)] text-[var(--navy)] hover:bg-[var(--gold-light)]">
               Apply Now

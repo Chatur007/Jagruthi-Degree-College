@@ -19,7 +19,7 @@ export function Footer() {
             <p className="mt-4 text-sm text-white/70">
               A premier institution committed to academic excellence, character formation and holistic development.
             </p>
-            <div className="mt-5 flex gap-2">
+            {/* <div className="mt-5 flex gap-2">
               {[Facebook, Instagram, Twitter, Youtube, Linkedin].map((Icon, i) => (
                 <a
                   key={i}
@@ -30,7 +30,7 @@ export function Footer() {
                   <Icon className="h-4 w-4" />
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
 
           <div>
@@ -71,13 +71,6 @@ export function Footer() {
               ))}
             </ul>
           </div>
-        </div>
-
-        <div className="mt-12 border-t border-white/10 pt-6 text-xs text-white/60">
-          <p className="leading-relaxed">
-            <strong className="text-white/80">Disclaimer:</strong> Domain registration charges, hosting charges, SSL certificates, email hosting services, and any third-party subscriptions are not included in the website development cost and shall be borne by the client.
-          </p>
-          <p className="mt-4 text-center">© {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
         </div>
       </div>
     </footer>

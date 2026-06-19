@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { ArrowRight, Bell, ExternalLink } from "lucide-react";
 import { SiteShell } from "@/components/site/SiteShell";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { AdmissionDialog } from "@/components/site/AdmissionDialog";
 import { DEPARTMENTS, GALLERY_PREVIEW, NOTICES, QUICK_LINKS, SITE } from "@/lib/site-data";
@@ -272,6 +273,7 @@ function HomePage() {
           </div>
         </div>
       </section>
+      <WhatsAppButton />
     </SiteShell>
   );
 }

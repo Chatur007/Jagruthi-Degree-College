@@ -29,11 +29,11 @@ function AdmissionsPage() {
   ];
 
   const fees = [
-    { course: "B.A. / B.Com (UG)", fee: "₹12,000 / year" },
-    { course: "B.Sc. (UG)", fee: "₹18,000 / year" },
-    { course: "B.C.A.", fee: "₹25,000 / year" },
-    { course: "M.A. / M.Com", fee: "₹16,000 / year" },
-    { course: "M.Sc.", fee: "₹24,000 / year" },
+    { course: "B.A", fee: 12000 },
+  { course: "B.Com (General)", fee: 12000 },
+  { course: "B.Sc (CBZ)", fee: 12000 },
+  { course: "B.Sc (PCM)", fee: 14000 },
+  { course: "B.Sc (PMCs)", fee: 16000 },
   ];
 
   return (
