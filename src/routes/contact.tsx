@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/lib/site-data";
+import hero from "@/assets/hero-campus.jpg";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -53,7 +54,7 @@ function ContactPage() {
 
   return (
     <SiteShell>
-      <PageHeader title="Contact Us" subtitle="We'd love to hear from you. Reach out for admissions, events, or any inquiry." />
+      <PageHeader title="Contact Us" subtitle="We'd love to hear from you. Reach out for admissions, events, or any inquiry." image={hero}  />
 
       <section className="py-16">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
@@ -62,8 +63,7 @@ function ContactPage() {
             <ul className="mt-6 space-y-4">
               {[
                 { icon: MapPin, t: "Address", v: SITE.address },
-                { icon: Phone, t: "Phone 1", v: SITE.phone },
-                { icon: Phone, t: "Phone 2", v: SITE.phone2 },
+                { icon: Phone, t: "Phone ", v: SITE.phone },
                 { icon: Phone, t: "WhatsApp", v: SITE.whatsapp },
                 { icon: Mail, t: "Email", v: SITE.email },
               ].map((c) => (

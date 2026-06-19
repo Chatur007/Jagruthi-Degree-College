@@ -42,7 +42,7 @@ function HomePage() {
       <section
         className="relative isolate -mt-16 flex min-h-[100svh] items-center text-white"
         style={{
-          backgroundImage: `linear-gradient(135deg, color-mix(in oklab, var(--navy) 80%, transparent), color-mix(in oklab, var(--navy) 55%, transparent)), url(${hero})`,
+          backgroundImage: `linear-gradient(135deg, color-mix(in oklab, var(--navy) 80%, transparent), color-mix(in oklab, var(--navy) 55%, transparent)), url("https://pgibhalki.com/wp-content/uploads/2025/05/WhatsApp-Image-2025-05-13-at-3.24.19-PM.jpeg")`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -111,7 +111,7 @@ function HomePage() {
               Established in 1978, {SITE.name} has grown into one of the region's most respected institutions. With a sprawling green campus, modern laboratories, and a passionate faculty, we offer over 25 programs across science, arts and commerce.
             </p>
             <ul className="mt-6 grid grid-cols-2 gap-3 text-sm">
-              {["NAAC Accredited", "UGC Recognized", "Smart Classrooms", "Modern Library"].map((t) => (
+              {["UGC Recognized", "Smart Classrooms", "Modern Library"].map((t) => (
                 <li key={t} className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-[var(--gold)]" />{t}</li>
               ))}
             </ul>
@@ -121,7 +121,7 @@ function HomePage() {
           </motion.div>
           <motion.div {...fadeUp} className="relative">
             <div className="absolute -inset-4 -z-10 rounded-3xl bg-navy-gradient/10 blur-2xl" />
-            <img src={hero} alt="campus" className="rounded-3xl shadow-2xl" loading="lazy" />
+            <img src="https://pgibhalki.com/wp-content/uploads/2025/05/WhatsApp-Image-2025-05-13-at-3.24.20-PM-1-1.jpeg" alt="campus" className="rounded-3xl shadow-2xl" loading="lazy" />
           </motion.div>
         </div>
       </section>
@@ -132,7 +132,7 @@ function HomePage() {
           <motion.div {...fadeUp} className="mx-auto md:mx-0">
             <div className="relative">
               <div className="absolute -inset-3 rounded-2xl bg-[var(--gold)]/20 blur-xl" />
-              <img src={principal} alt="Principal" className="relative h-72 w-60 rounded-2xl object-cover shadow-xl" loading="lazy" />
+              <img src="https://pgibhalki.com/wp-content/uploads/2025/04/lg-gupta-300x300.webp" alt="Principal" className="relative h-72 w-60 rounded-2xl object-cover shadow-xl" loading="lazy" />
             </div>
           </motion.div>
           <motion.div {...fadeUp}>
@@ -141,8 +141,8 @@ function HomePage() {
             <p className="mt-4 text-muted-foreground">
               "Education at {SITE.name} is not merely an exchange of information — it is the joint pursuit of wisdom, character and purpose. We invite you to be part of a learning community that believes in every student's potential and equips them to make a difference in the world."
             </p>
-            <p className="mt-4 font-semibold">Dr. Mahesh Rao</p>
-            <p className="text-sm text-muted-foreground">Principal</p>
+            <p className="mt-4 font-semibold">Shri. L. G. Gupta</p>
+            <p className="text-sm text-muted-foreground">Founder President & Chairman</p>
           </motion.div>
         </div>
       </section>

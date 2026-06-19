@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { SiteShell, PageHeader } from "@/components/site/SiteShell";
 import { GALLERY, GALLERY_CATEGORIES } from "@/lib/site-data";
 import { Lightbox } from "@/components/site/Lightbox";
+import hero from "@/assets/hero-campus.jpg";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -25,10 +26,10 @@ function GalleryPage() {
 
   return (
     <SiteShell>
-      <PageHeader title="Gallery" subtitle="Moments from campus, events, sports, cultural fests and the laboratories." />
+      <PageHeader title="Gallery" subtitle="Moments from campus, events, sports, cultural fests and the laboratories."image= {hero} />
       <section className="py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-2">
+          {/* <div className="flex flex-wrap justify-center gap-2">
             {GALLERY_CATEGORIES.map((c) => (
               <button
                 key={c}
@@ -42,7 +43,7 @@ function GalleryPage() {
                 {c}
               </button>
             ))}
-          </div>
+          </div> */}
 
           <div className="mt-10 columns-2 gap-4 sm:columns-3 lg:columns-4 [&>*]:mb-4">
             <AnimatePresence mode="popLayout">

@@ -18,7 +18,7 @@ const schema = z.object({
   qualification: z.string().trim().min(2, "Required").max(100),
   percentage: z.string().regex(/^\d{1,3}(\.\d+)?$/, "Enter a valid percentage"),
   passingYear: z.string().regex(/^\d{4}$/, "Enter a valid year"),
-  department: z.string().min(1, "Select a department"),
+  // department: z.string().min(1, "Select a department"),
   course: z.string().trim().min(1, "Required").max(100),
   address: z.string().trim().min(3, "Required").max(200),
   city: z.string().trim().min(2, "Required").max(80),
@@ -107,7 +107,7 @@ export function AdmissionDialog({ trigger, open: controlledOpen, onOpenChange }:
               </Section>
 
               <Section title="Course Selection">
-                <Field label="Department">
+                {/* <Field label="Department">
                   <Select name="department">
                     <SelectTrigger><SelectValue placeholder="Select Department" /></SelectTrigger>
                     <SelectContent>
@@ -116,7 +116,7 @@ export function AdmissionDialog({ trigger, open: controlledOpen, onOpenChange }:
                       ))}
                     </SelectContent>
                   </Select>
-                </Field>
+                </Field> */}
                 <Field label="Course">
                   <Select name="course">
                     <SelectTrigger><SelectValue placeholder="Select Course" /></SelectTrigger>

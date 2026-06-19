@@ -46,7 +46,7 @@ function AboutPage() {
           <motion.div {...fade} className="rounded-3xl border bg-gradient-to-br from-[var(--gold)]/10 to-transparent p-6 md:p-10">
             <div className="grid gap-8 md:grid-cols-[280px_1fr] md:items-start">
               <div>
-                <img src={principal} alt="Shri. L. G. Gupta" className="rounded-2xl object-cover shadow-lg" loading="lazy" />
+                <img src="https://pgibhalki.com/wp-content/uploads/2025/04/lg-gupta-300x300.webp" alt="Shri. L. G. Gupta" className="rounded-2xl object-cover shadow-lg" loading="lazy" />
               </div>
               <div>
                 <h3 className="font-display text-2xl font-bold">Message from the Founder</h3>
