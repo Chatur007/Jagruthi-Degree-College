@@ -26,7 +26,7 @@ function GalleryPage() {
 
   return (
     <SiteShell>
-      <PageHeader title="Gallery" subtitle="Moments from campus, events, sports, cultural fests and the laboratories."image= {hero} />
+      <PageHeader title="Gallery" subtitle="Moments from campus, events, sports, cultural fests and the laboratories." image={hero} />
       <section className="py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* <div className="flex flex-wrap justify-center gap-2">

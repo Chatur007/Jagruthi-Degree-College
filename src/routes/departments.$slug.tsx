@@ -14,12 +14,12 @@ export const Route = createFileRoute("/departments/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.dept.name} — Vidya Bharati College` },
-          { name: "description", content: loaderData.dept.description },
-          { property: "og:title", content: loaderData.dept.name },
-          { property: "og:description", content: loaderData.dept.description },
-          { property: "og:image", content: loaderData.dept.image },
-        ]
+        { title: `${loaderData.dept.name} — Vidya Bharati College` },
+        { name: "description", content: loaderData.dept.description },
+        { property: "og:title", content: loaderData.dept.name },
+        { property: "og:description", content: loaderData.dept.description },
+        { property: "og:image", content: loaderData.dept.image },
+      ]
       : [],
   }),
   notFoundComponent: () => (
@@ -81,26 +81,9 @@ function DepartmentDetail() {
           </motion.div>
 
           <div className="grid gap-10 md:grid-cols-2">
-            <motion.div {...fade}>
-              <h2 className="font-display text-2xl font-bold flex items-center gap-2"><Users className="h-5 w-5 text-[var(--gold)]" /> Faculty</h2>
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                {[
-                  { n: dept.hod.name, r: "HOD & Professor" },
-                  { n: "Prof. Anil Kumar", r: "Associate Professor" },
-                  { n: "Dr. Meena Sharma", r: "Assistant Professor" },
-                  { n: "Prof. Rajesh Nair", r: "Assistant Professor" },
-                ].map((f) => (
-                  <div key={f.n} className="rounded-xl border bg-card p-4">
-                    <div className="font-semibold">{f.n}</div>
-                    <div className="text-xs text-muted-foreground">{f.r}</div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div {...fade}>
+            <motion.div {...fade} className="md:col-span-2">
               <h2 className="font-display text-2xl font-bold flex items-center gap-2"><FlaskConical className="h-5 w-5 text-[var(--gold)]" /> Facilities</h2>
-              <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+              <ul className="mt-4 grid gap-2 sm:grid-cols-2 md:grid-cols-3">
                 {dept.facilities.map((f: string) => (
                   <li key={f} className="rounded-lg border bg-card px-4 py-3 text-sm">{f}</li>
                 ))}

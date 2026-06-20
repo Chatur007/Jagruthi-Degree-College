@@ -9,7 +9,7 @@ import logo from "@/assets/logo.png";
 const links = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/academics", label: "Academics" },
+  { to: "/departments", label: "Departments" },
   { to: "/fees", label: "Fee Structure" },
   { to: "/gallery", label: "Gallery" },
   { to: "/contact", label: "Contact" },
@@ -37,9 +37,8 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass shadow-sm" : "bg-transparent"
-      }`}
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? "glass shadow-sm" : "bg-transparent"
+        }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link to="/" className="flex min-w-0 items-center gap-2.5">
@@ -61,9 +60,8 @@ export function Navbar() {
               <Link
                 key={l.to}
                 to={l.to}
-                className={`relative rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-[var(--gold)] ${
-                  active ? "text-[var(--gold)]" : "text-foreground"
-                }`}
+                className={`relative rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-[var(--gold)] ${active ? "text-[var(--gold)]" : "text-foreground"
+                  }`}
               >
                 {l.label}
                 {active && (

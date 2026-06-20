@@ -4,15 +4,15 @@ import { CheckCircle2, FileText, ClipboardCheck, GraduationCap } from "lucide-re
 import { SiteShell, PageHeader } from "@/components/site/SiteShell";
 import { Button } from "@/components/ui/button";
 import { AdmissionDialog } from "@/components/site/AdmissionDialog";
-import { DEPARTMENTS } from "@/lib/site-data";
+import { DEPARTMENTS, SITE } from "@/lib/site-data";
 import hero from "@/assets/hero-campus.jpg";
 
 export const Route = createFileRoute("/admissions")({
   head: () => ({
     meta: [
-      { title: "Admissions 2026-27 — Vidya Bharati College" },
+      { title: `Admissions 2026-27 — ${SITE.name}` },
       { name: "description", content: "Admission process, courses offered, eligibility, fee structure and online application." },
-      { property: "og:title", content: "Admissions - Vidya Bharati College" },
+      { property: "og:title", content: `Admissions — ${SITE.name}` },
       { property: "og:description", content: "Apply online for UG and PG programs." },
     ],
   }),
@@ -30,10 +30,10 @@ function AdmissionsPage() {
 
   const fees = [
     { course: "B.A", fee: 12000 },
-  { course: "B.Com (General)", fee: 12000 },
-  { course: "B.Sc (CBZ)", fee: 12000 },
-  { course: "B.Sc (PCM)", fee: 14000 },
-  { course: "B.Sc (PMCs)", fee: 16000 },
+    { course: "B.Com (General)", fee: 12000 },
+    { course: "B.Sc (CBZ)", fee: 12000 },
+    { course: "B.Sc (PCM)", fee: 14000 },
+    { course: "B.Sc (PMCs)", fee: 16000 },
   ];
 
   return (

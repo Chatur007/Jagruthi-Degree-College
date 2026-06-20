@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { ArrowRight, Bell, ExternalLink } from "lucide-react";
+import { ArrowRight, Bell, ExternalLink, BookOpen, Users, Lightbulb } from "lucide-react";
 import { SiteShell } from "@/components/site/SiteShell";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { AdmissionDialog } from "@/components/site/AdmissionDialog";
-import { DEPARTMENTS, GALLERY_PREVIEW, NOTICES, QUICK_LINKS, SITE } from "@/lib/site-data";
+import { DEPARTMENTS, GALLERY_PREVIEW, NOTICES, QUICK_LINKS, SITE, FEE_STRUCTURE } from "@/lib/site-data";
 import hero from "@/assets/hero-campus.jpg";
 import principal from "@/assets/principal.jpg";
 
@@ -57,7 +57,7 @@ function HomePage() {
           >
             <span className="h-1.5 w-1.5 rounded-full bg-[var(--gold)]" /> Admissions 2026-27 Now Open
           </motion.span> */}
- 
+
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -148,11 +148,87 @@ function HomePage() {
         </div>
       </section>
 
+      {/* Courses Offered Section (Academics) */}
+      <section className="py-20 sm:py-24 border-t bg-muted/20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeUp} className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Academics</span>
+              <h2 className="mt-2 font-display text-3xl font-bold sm:text-4xl">Courses Offered</h2>
+              <p className="mt-3 max-w-xl text-sm text-muted-foreground">
+                Affordable, quality undergraduate education across Arts, Commerce and Sciences.
+              </p>
+            </div>
+            <Link to="/departments">
+              <Button variant="outline">View Detailed Syllabus <ArrowRight className="ml-1 h-4 w-4" /></Button>
+            </Link>
+          </motion.div>
+
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {DEPARTMENTS.map((d, i) => {
+              const fee = FEE_STRUCTURE.find(f => f.course === d.name)?.fee;
+              return (
+                <motion.div
+                  key={d.slug}
+                  {...fadeUp}
+                  transition={{ duration: 0.5, delay: i * 0.04 }}
+                  className="group flex flex-col justify-between rounded-2xl border bg-card p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+                >
+                  <div>
+                    <div className="inline-flex items-center justify-center rounded-xl bg-[var(--gold)]/15 p-3 mb-4">
+                      <BookOpen className="h-6 w-6 text-[var(--gold)]" />
+                    </div>
+                    <h3 className="font-display text-xl font-semibold">{d.name}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{d.description}</p>
+                    {fee && (
+                      <div className="mt-4 flex items-baseline gap-1.5">
+                        <span className="text-lg font-semibold text-[var(--gold)]">₹{fee.toLocaleString()}</span>
+                        <span className="text-xs text-muted-foreground">per year</span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="mt-6 flex items-center justify-between border-t pt-4">
+                    <Link
+                      to="/departments/$slug"
+                      params={{ slug: d.slug }}
+                      className="inline-flex items-center gap-1 text-sm font-semibold text-[var(--navy)] hover:text-[var(--gold)] dark:text-[var(--gold)]"
+                    >
+                      Learn more <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                    <Link
+                      to="/contact"
+                      className="text-xs font-semibold text-muted-foreground hover:text-[var(--gold)]"
+                    >
+                      Inquire Now
+                    </Link>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Key Features from Academics */}
+          <div className="mt-20 grid gap-8 md:grid-cols-3">
+            {[
+              { icon: Users, title: "Expert Faculty", desc: "Dedicated educators with advanced degrees and industry experience" },
+              { icon: Lightbulb, title: "Modern Facilities", desc: "Well-equipped laboratories, libraries and smart classrooms" },
+              { icon: BookOpen, title: "Holistic Development", desc: "Academics, sports, arts and character building in equal measure" },
+            ].map((feature) => (
+              <motion.div key={feature.title} {...fadeUp} className="rounded-2xl border bg-card p-6 shadow-sm">
+                <feature.icon className="h-8 w-8 text-[var(--gold)]" />
+                <h3 className="mt-4 font-display text-lg font-semibold">{feature.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{feature.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Stats */}
       {/* Removed student count / statistics section */}
 
       {/* Notice Board */}
-      <section className="py-20 sm:py-24">
+      {/* <section className="py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Stay Updated</span>
@@ -178,7 +254,7 @@ function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Quick Links */}
       <section className="bg-muted/50 py-20">
@@ -210,51 +286,12 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Departments preview */}
-      {/* <section className="py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeUp} className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Academics</span>
-              <h2 className="mt-2 font-display text-3xl font-bold sm:text-4xl">Our Departments</h2>
-            </div>
-            <Link to="/departments"><Button variant="outline">View All <ArrowRight className="ml-1 h-4 w-4" /></Button></Link>
-          </motion.div>
-
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {DEPARTMENTS.map((d, i) => (
-              <motion.div
-                key={d.slug}
-                {...fadeUp}
-                transition={{ duration: 0.5, delay: i * 0.04 }}
-                className="group overflow-hidden rounded-2xl border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
-              >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img src={d.image} alt={d.name} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-110" />
-                </div>
-                <div className="p-5">
-                  <h3 className="font-display text-lg font-semibold">{d.short}</h3>
-                  <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">{d.description}</p>
-                  <Link
-                    to="/departments/$slug"
-                    params={{ slug: d.slug }}
-                    className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[var(--navy)] hover:text-[var(--gold)] dark:text-[var(--gold)]"
-                  >
-                    Learn more <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
       {/* Gallery preview */}
       <section className="bg-muted/50 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Life at VBC</span>
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Life at {SITE.short}</span>
               <h2 className="mt-2 font-display text-3xl font-bold sm:text-4xl">Gallery</h2>
             </div>
             <Link to="/gallery"><Button variant="outline">Open Gallery <ArrowRight className="ml-1 h-4 w-4" /></Button></Link>

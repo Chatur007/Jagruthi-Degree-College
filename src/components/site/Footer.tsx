@@ -43,8 +43,8 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display text-base font-semibold text-[var(--gold)]">Quick Links</h4>
-            <ul className="mt-4 grid grid-cols-2 gap-2 text-sm text-white/80">
+            <h4 className="font-display text-base font-semibold text-[var(--gold)]">Pages</h4>
+            <ul className="mt-4 grid grid-cols-1 gap-2 text-sm text-white/80">
               {[
                 ["/about", "About"],
                 ["/admissions", "Admissions"],
@@ -60,7 +60,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display text-base font-semibold text-[var(--gold)]">Student Resources</h4>
+            <h4 className="font-display text-base font-semibold text-[var(--gold)]">Quick Links</h4>
             <ul className="mt-4 grid grid-cols-1 gap-1.5 text-sm text-white/80">
               {QUICK_LINKS.slice(0, 6).map((l) => (
                 <li key={l.name}>
