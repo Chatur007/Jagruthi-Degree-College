@@ -6,7 +6,7 @@ import galleryWhatsApp4 from "@/assets/WhatsApp Image 2026-06-05 at 7.04.35 PM.j
 export const SITE = {
   name: "Jagruthi Degree College",
   short: "JDC",
-  tagline: "Excellence in Education Since 1978",
+  tagline: "Excellence in Education Since 1998",
   address: "Main Road, Bhalki, Bidar District, Karnataka 585328",
   phone: "+91 91130 35230",
   whatsapp: "+91 73531 07313",
@@ -184,7 +184,6 @@ export const GALLERY = [
   { src: "https://pgibhalki.com/wp-content/uploads/2025/05/Dr-B-R-Ambedkar-2.webp", category: "Sports", title: "Basketball Court" },
   { src: "https://pgibhalki.com/wp-content/uploads/2025/05/drdo-2.webp", category: "Classrooms", title: "Interactive Classroom" },
   { src: "https://pgibhalki.com/wp-content/uploads/2025/05/Scientists-at-DRDO-2.webp", category: "Library", title: "Library Reading Area" },
-  { src: "https://pgibhalki.com/wp-content/uploads/2025/05/principal-gnm.jpg", category: "Classrooms", title: "Science Lab" },
   { src: "https://pgibhalki.com/wp-content/uploads/2025/05/IMG-20250529-WA0028-1.jpg", category: "Classrooms", title: "Computer Lab" },
   { src: "https://pgibhalki.com/wp-content/uploads/2025/05/IMG-20250529-WA0024-1.jpg", category: "Library", title: "Digital Library" },
   { src: "https://pgibhalki.com/wp-content/uploads/2025/05/IMG-20250529-WA0025-1.jpg", category: "Library", title: "Digital Library" },

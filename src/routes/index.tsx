@@ -6,9 +6,12 @@ import { SiteShell } from "@/components/site/SiteShell";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { AdmissionDialog } from "@/components/site/AdmissionDialog";
+import { ImagePopupDialog } from "@/components/site/ImagePopupDialog";
 import { DEPARTMENTS, GALLERY_PREVIEW, NOTICES, QUICK_LINKS, SITE, FEE_STRUCTURE } from "@/lib/site-data";
 import hero from "@/assets/hero-campus.jpg";
 import principal from "@/assets/principal.jpg";
+import popupImage from "@/assets/WhatsApp Image 2026-06-05 at 7.04.34 PM (1).jpeg";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -25,11 +28,11 @@ export const Route = createFileRoute("/")({
 const fadeUp = { initial: { opacity: 0, y: 30 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, margin: "-80px" }, transition: { duration: 0.6 } };
 
 function HomePage() {
-  const [isAdmissionOpen, setIsAdmissionOpen] = useState(false);
+  const [isImagePopupOpen, setIsImagePopupOpen] = useState(false);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
-      setIsAdmissionOpen(true);
+      setIsImagePopupOpen(true);
     }, 3000);
 
     return () => {
@@ -83,8 +86,6 @@ function HomePage() {
             className="mt-8 flex flex-wrap gap-3"
           >
             <AdmissionDialog
-              open={isAdmissionOpen}
-              onOpenChange={setIsAdmissionOpen}
               trigger={
                 <Button size="lg" className="bg-[var(--gold)] text-[var(--navy)] hover:bg-[var(--gold-light)]">
                   Apply for Admission <ArrowRight className="ml-1 h-4 w-4" />
@@ -101,7 +102,7 @@ function HomePage() {
       </section>
 
       {/* About preview */}
-      <section className="py-20 sm:py-28">
+      {/* <section className="py-20 sm:py-28">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
           <motion.div {...fadeUp}>
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">About the College</span>
@@ -109,7 +110,7 @@ function HomePage() {
               Five decades of academic excellence and character building.
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Established in 1978, {SITE.name} has grown into one of the region's most respected institutions. With a sprawling green campus, modern laboratories, and a passionate faculty, we offer over 25 programs across science, arts and commerce.
+              Established in 1998, {SITE.name} has grown into one of the region's most respected institutions. With a sprawling green campus, modern laboratories, and a passionate faculty, we offer over 25 programs across science, arts and commerce.
             </p>
             <ul className="mt-6 grid grid-cols-2 gap-3 text-sm">
               {["UGC Recognized", "Smart Classrooms", "Modern Library"].map((t) => (
@@ -125,7 +126,7 @@ function HomePage() {
             <img src="https://pgibhalki.com/wp-content/uploads/2025/05/WhatsApp-Image-2025-05-13-at-3.24.20-PM-1-1.jpeg" alt="campus" className="rounded-3xl shadow-2xl" loading="lazy" />
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Principal's Message */}
       <section className="bg-muted/50 py-20 sm:py-24">
@@ -311,6 +312,11 @@ function HomePage() {
         </div>
       </section>
       <WhatsAppButton />
+      <ImagePopupDialog
+        open={isImagePopupOpen}
+        onOpenChange={setIsImagePopupOpen}
+        imageSrc={popupImage}
+      />
     </SiteShell>
   );
 }
