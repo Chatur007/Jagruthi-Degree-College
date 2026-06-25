@@ -72,6 +72,23 @@ export function Footer() {
             </ul>
           </div>
         </div>
+
+        <div className="mt-12 border-t border-white/10 pt-8 flex flex-col items-center justify-center gap-2 text-center text-sm text-white/60">
+          <div>
+            &copy; {new Date().getFullYear()} {SITE.name}. All rights reserved.
+          </div>
+          <div>
+            Developed by{" "}
+            <a
+              href="https://www.infiinofy.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-white hover:text-[var(--gold)] transition-colors"
+            >
+              INFIINOFY
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   );
