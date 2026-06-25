@@ -7,7 +7,7 @@ export const SITE = {
   name: "Jagruthi Degree College",
   short: "JDC",
   tagline: "Excellence in Education Since 1998",
-  address: "Main Road, Bhalki, Bidar District, Karnataka 585328",
+  address: "KHB Colony, Near Horticulture Office, Bhalki, Bidar, Karnataka",
   phone: "+91 91130 35230",
   whatsapp: "+91 73531 07313",
   email: "jagruthicollegeblk@gmail.com",
@@ -27,6 +27,14 @@ export const QUICK_LINKS = [
   { name: "DigiLocker", url: "https://www.digilocker.gov.in/", desc: "Digital Documents" },
 ];
 
+export type FacultyMember = {
+  name: string;
+  qualification?: string;
+  designation?: string;
+  subject?: string;
+  experience?: string;
+};
+
 export type Department = {
   slug: string;
   name: string;
@@ -37,6 +45,7 @@ export type Department = {
   hod: { name: string; message: string };
   courses: string[];
   facilities: string[];
+  faculty?: FacultyMember[];
 };
 
 export const DEPARTMENTS: Department[] = [
@@ -65,11 +74,48 @@ export const DEPARTMENTS: Department[] = [
     overview:
       "The Arts faculty offers a rich blend of humanities and social sciences, fostering critical thinking, communication and cultural awareness.",
     hod: {
-      name: "Prof. Sunita Patil",
+      name: "Sambhaji L. Dhere",
       message: "Education in the arts is education for life — it shapes thinkers, leaders and citizens.",
     },
     courses: ["B.A"],
     facilities: ["Language Lab", "Reading Room", "Cultural Hall", "Debate Society"],
+    faculty: [
+      {
+        name: "Sambhaji L. Dhere",
+        qualification: "M.A., B.Ed.",
+        designation: "Head of Department (HOD)",
+        subject: "English",
+        experience: "22 Years",
+      },
+      {
+        name: "Laxman S. Singase",
+        qualification: "B.Ed.",
+        designation: "Lecturer",
+        subject: "Hindi",
+        experience: "5 Years",
+      },
+      {
+        name: "Vishal Phule",
+        qualification: "B.Ed.",
+        designation: "Lecturer",
+        subject: "Political Science",
+        experience: "2 Years",
+      },
+      {
+        name: "Shilpa Uchhatte",
+        qualification: "B.Ed.",
+        designation: "Lecturer",
+        subject: "History",
+        experience: "2 Years",
+      },
+      {
+        name: "Rekha Patil",
+        qualification: "B.Ed.",
+        designation: "Lecturer",
+        subject: "Sociology",
+        experience: "2 Years",
+      },
+    ],
   },
   {
     slug: "botany",
@@ -80,11 +126,20 @@ export const DEPARTMENTS: Department[] = [
     overview:
       "The Botany department combines classroom learning with field excursions, herbarium work and modern plant-science laboratories.",
     hod: {
-      name: "Dr. Anjali Deshmukh",
+      name: "Ms. Nagashhoo Shaan",
       message: "Plants sustain our planet. Studying botany is a step toward a greener, healthier future.",
     },
     courses: ["B.Sc CBZ"],
     facilities: ["Herbarium", "Botanical Garden", "Greenhouse", "Microscopy Lab"],
+    faculty: [
+      {
+        name: "Ms. Nagashhoo Shaan",
+        qualification: "M.Sc., B.Ed.",
+        designation: "Assistant Professor & HOD",
+        subject: "Botany",
+        experience: "4 Years",
+      },
+    ],
   },
   {
     slug: "zoology",
@@ -110,11 +165,50 @@ export const DEPARTMENTS: Department[] = [
     overview:
       "Modern chemistry laboratories, instrumentation and research-led teaching prepare students for industry and academia alike.",
     hod: {
-      name: "Dr. Pratima Hegde",
+      name: "Ms. Ravindra Gasketty",
       message: "Chemistry is the central science — and we make sure our students master it with rigor and curiosity.",
     },
     courses: ["B.Sc PMCs"],
     facilities: ["Organic Lab", "Instrumentation Room", "Research Cell", "Safety Training"],
+    faculty: [
+      {
+        name: "Ms. Ravindra Gasketty",
+        qualification: "M.Sc., B.Ed.",
+        designation: "Assistant Professor & HOD",
+        subject: "Chemistry",
+        experience: "5 Years",
+      },
+    ],
+  },
+  {
+    slug: "physics",
+    name: "Department of Physics",
+    short: "Physics",
+    image: "https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?w=1200&q=80",
+    description: "From classical mechanics to quantum and astrophysics.",
+    overview:
+      "The Physics department offers strong fundamentals supported by modern experimental labs and observational astronomy facilities.",
+    hod: {
+      name: "Mr. Sriram N. Tamsange",
+      message: "Physics teaches us how the world works — and how to ask better questions about it.",
+    },
+    courses: ["B.Sc (PCM)", "B.Sc (PMCs)"],
+    facilities: ["Optics Lab", "Electronics Lab", "Astronomy Club", "Workshop"],
+    faculty: [
+      {
+        name: "Mr. Sriram N. Tamsange",
+        qualification: "M.Sc., B.Ed.",
+        designation: "Assistant Professor & HOD",
+        subject: "Physics",
+        experience: "4 Years",
+      },
+      {
+        name: "Ms. Pramila",
+        qualification: "M.Sc., B.Ed.",
+        designation: "Assistant Professor",
+        subject: "Physics",
+      },
+    ],
   },
   // {
   //   slug: "mathematics",
@@ -130,21 +224,6 @@ export const DEPARTMENTS: Department[] = [
   //   },
   //   courses: ["B.Sc. (Mathematics)", "M.Sc. (Mathematics)", "Statistics Certificate"],
   //   facilities: ["Math Resource Center", "Computational Lab", "Quiz Club", "Research Seminars"],
-  // },
-  // {
-  //   slug: "physics",
-  //   name: "Department of Physics",
-  //   short: "Physics",
-  //   image: "https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?w=1200&q=80",
-  //   description: "From classical mechanics to quantum and astrophysics.",
-  //   overview:
-  //     "The Physics department offers strong fundamentals supported by modern experimental labs and observational astronomy facilities.",
-  //   hod: {
-  //     name: "Dr. Karthik Rao",
-  //     message: "Physics teaches us how the world works — and how to ask better questions about it.",
-  //   },
-  //   courses: ["B.Sc. (Physics)", "M.Sc. (Physics)", "Electronics Certificate"],
-  //   facilities: ["Optics Lab", "Electronics Lab", "Astronomy Club", "Workshop"],
   // },
   // {
   //   slug: "computer-science",

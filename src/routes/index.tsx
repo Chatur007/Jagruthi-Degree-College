@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { ArrowRight, Bell, ExternalLink, BookOpen, Users, Lightbulb } from "lucide-react";
+import { ArrowRight, Bell, ExternalLink, BookOpen, Users, Lightbulb, Award, UserCheck, Stethoscope } from "lucide-react";
 import { SiteShell } from "@/components/site/SiteShell";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { Button } from "@/components/ui/button";
@@ -9,7 +9,6 @@ import { AdmissionDialog } from "@/components/site/AdmissionDialog";
 import { ImagePopupDialog } from "@/components/site/ImagePopupDialog";
 import { DEPARTMENTS, GALLERY_PREVIEW, NOTICES, QUICK_LINKS, SITE, FEE_STRUCTURE } from "@/lib/site-data";
 import hero from "@/assets/hero-campus.jpg";
-import principal from "@/assets/principal.jpg";
 import popupImage from "@/assets/WhatsApp Image 2026-06-05 at 7.04.34 PM (1).jpeg";
 
 
@@ -128,24 +127,63 @@ function HomePage() {
         </div>
       </section> */}
 
-      {/* Principal's Message */}
+      {/* Meet Our Leadership */}
       <section className="bg-muted/50 py-20 sm:py-24">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 md:grid-cols-[300px_1fr] md:items-center lg:px-8">
-          <motion.div {...fadeUp} className="mx-auto md:mx-0">
-            <div className="relative">
-              <div className="absolute -inset-3 rounded-2xl bg-[var(--gold)]/20 blur-xl" />
-              <img src="https://pgibhalki.com/wp-content/uploads/2025/04/lg-gupta-300x300.webp" alt="Principal" className="relative h-72 w-60 rounded-2xl object-cover shadow-xl" loading="lazy" />
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeUp} className="text-center">
+            <h2 className="font-display text-3xl font-bold sm:text-4xl">Meet Our Leadership</h2>
+            <div className="mt-4 flex items-center justify-center gap-1">
+              <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
+              <span className="h-1.5 w-1.5 rounded-full bg-blue-600/70" />
+              <span className="h-1.5 w-1.5 rounded-full bg-blue-600/40" />
+              <span className="h-1 w-10 rounded-full bg-blue-600" />
             </div>
-          </motion.div>
-          <motion.div {...fadeUp}>
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Principal's Message</span>
-            <h2 className="mt-2 font-display text-3xl font-bold sm:text-4xl">A warm welcome to our students.</h2>
-            <p className="mt-4 text-muted-foreground">
-              "Education at {SITE.name} is not merely an exchange of information — it is the joint pursuit of wisdom, character and purpose. We invite you to be part of a learning community that believes in every student's potential and equips them to make a difference in the world."
+            <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground">
+              Committed to guiding PGI Bhalki with vision, experience, and dedication to academic excellence.
             </p>
-            <p className="mt-4 font-semibold">Shri. L. G. Gupta</p>
-            <p className="text-sm text-muted-foreground">Founder President & Chairman</p>
           </motion.div>
+
+          <div className="mt-16 grid gap-y-16 gap-x-8 sm:grid-cols-2 lg:grid-cols-3 justify-center">
+            {[
+              {
+                name: "Shri. L. G. Gupta",
+                image: "https://pgibhalki.com/wp-content/uploads/2025/04/lg-gupta-300x300.webp",
+                icon: Award,
+              },
+              {
+                name: "Mr. Abhay L. Gupta",
+                image: "https://pgibhalki.com/wp-content/uploads/2025/04/IMG-20240701-WA0005-300x300.webp",
+                icon: UserCheck,
+              },
+              {
+                name: "Dr. Anjali Gupta",
+                image: "https://pgibhalki.com/wp-content/uploads/2025/04/anjali-300x300.webp",
+                icon: Stethoscope,
+              },
+            ].map((leader, index) => (
+              <motion.div
+                key={leader.name}
+                {...fadeUp}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="relative flex flex-col items-center group"
+              >
+                {/* Image Box */}
+                <div className="relative overflow-hidden rounded-2xl bg-white shadow-md transition duration-300 group-hover:shadow-lg">
+                  <img
+                    src={leader.image}
+                    alt={leader.name}
+                    className="h-60 w-52 object-cover object-top transition duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                {/* Name Label overlapping bottom */}
+                <div className="-mt-8 relative z-10 w-64 rounded-xl bg-white px-5 py-4 shadow-lg border border-black/5 flex items-center justify-center gap-3 transition duration-300 group-hover:-translate-y-0.5">
+                  <leader.icon className="h-5 w-5 shrink-0 text-blue-600" />
+                  <span className="font-display text-sm font-bold text-slate-800">{leader.name}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

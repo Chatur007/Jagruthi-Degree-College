@@ -1,6 +1,6 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowLeft, BookOpen, FlaskConical, Users, Calendar } from "lucide-react";
+import { ArrowLeft, BookOpen, FlaskConical, Users, Calendar, GraduationCap, Briefcase } from "lucide-react";
 import { SiteShell } from "@/components/site/SiteShell";
 import { DEPARTMENTS, GALLERY } from "@/lib/site-data";
 import { Button } from "@/components/ui/button";
@@ -79,6 +79,49 @@ function DepartmentDetail() {
             <p className="mt-3 font-semibold">{dept.hod.name}</p>
             <p className="text-sm text-muted-foreground">Head of Department</p>
           </motion.div>
+
+          {dept.faculty && dept.faculty.length > 0 && (
+            <motion.div {...fade} className="space-y-6">
+              <h2 className="font-display text-2xl font-bold flex items-center gap-2">
+                <Users className="h-6 w-6 text-[var(--gold)]" /> Meet Our Faculty
+              </h2>
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {dept.faculty.map((f) => (
+                  <div key={f.name} className="rounded-2xl border bg-card p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                    <div>
+                      <h3 className="font-display text-lg font-semibold text-[var(--navy)] dark:text-[var(--gold)]">{f.name}</h3>
+                      {f.designation && (
+                        <span className="inline-flex items-center gap-1.5 mt-1.5 rounded-full bg-[var(--gold)]/10 px-3 py-1 text-xs font-semibold text-[var(--gold)]">
+                          {f.designation}
+                        </span>
+                      )}
+                      
+                      <div className="mt-4 space-y-2 text-sm text-muted-foreground">
+                        {f.qualification && (
+                          <div className="flex items-center gap-2">
+                            <GraduationCap className="h-4 w-4 shrink-0 text-muted-foreground" />
+                            <span><strong>Qualification:</strong> {f.qualification}</span>
+                          </div>
+                        )}
+                        {f.subject && (
+                          <div className="flex items-center gap-2">
+                            <BookOpen className="h-4 w-4 shrink-0 text-muted-foreground" />
+                            <span><strong>Subject:</strong> {f.subject}</span>
+                          </div>
+                        )}
+                        {f.experience && (
+                          <div className="flex items-center gap-2">
+                            <Briefcase className="h-4 w-4 shrink-0 text-muted-foreground" />
+                            <span><strong>Experience:</strong> {f.experience}</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
 
           <div className="grid gap-10 md:grid-cols-2">
             <motion.div {...fade} className="md:col-span-2">

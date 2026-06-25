@@ -166,6 +166,36 @@ function DepartmentsPage() {
         </div>
       </section>
 
+      {/* College Administration */}
+      <section className="py-16 sm:py-20 border-t bg-muted/20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeUp} className="mb-12 text-center">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">College Leadership</span>
+            <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl">Administration</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
+              Guiding our students and managing the institutional operations with commitment and leadership.
+            </p>
+          </motion.div>
+          <div className="flex justify-center">
+            <motion.div
+              {...fadeUp}
+              className="w-full max-w-md rounded-2xl border bg-card p-6 shadow-sm flex flex-col items-center text-center hover:shadow-lg transition duration-300"
+            >
+              <div className="h-20 w-20 rounded-full bg-[var(--gold)]/10 flex items-center justify-center mb-4">
+                <Users className="h-9 w-9 text-[var(--gold)]" />
+              </div>
+              <h3 className="font-display text-xl font-bold text-[var(--navy)] dark:text-[var(--gold)]">Ms. Ravita</h3>
+              <span className="inline-flex items-center gap-1.5 mt-2 rounded-full bg-blue-600/10 px-3.5 py-1 text-xs font-semibold text-blue-600">
+                Office Incharge (Principal)
+              </span>
+              <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+                Manages overall college administrative tasks, student affairs, admissions, and runs the principal's office with dedication.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA section (merged from academics) */}
       <section className="bg-muted/50 py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
